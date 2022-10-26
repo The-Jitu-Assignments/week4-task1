@@ -11,32 +11,39 @@ body {
 :root {
   --blackColor: #000;
   --whiteColor: #fff;
+  --darkWhite: #EEF1FF;
   --fontSizeLarge: 32px;
   --fontSizeMedium: 20px;
   --fontSizeSmall: 12px;
   --defaultGap: 10px;
+  --defaultBoxShadow: 0px 7px 30px -4px rgba(0,0,0,0.75);
 }
 
 .header--container {
+  display: flex;
   background-color: var(--blackColor);
   color: var(--whiteColor);
   height: 10vh;
+  font-size: var(--fontSizeLarge);
+  padding-left: 20px;
+  align-items: center;
 }
 
 .main--container {
   display: flex;
   gap: var(--defaultGap);
-  background-color: violet;
   height: calc(100vh - 10vh);
-  padding: 1rem;
+  padding: 20px;
 }
 
 .list {
-  background-color: wheat;
+  background-color: var(--darkWhite);
   width: 70%;
+  box-shadow: var(--defaultBoxShadow);
 }
 
 .form {
-  background-color: wheat;
+  background-color: var(--darkWhite);
   flex: 1;
+  box-shadow: var(--defaultBoxShadow);
 }
