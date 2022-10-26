@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+:root {
+  --blackColor: #000;
+  --whiteColor: #fff;
+  --fontSizeLarge: 32px;
+  --fontSizeMedium: 20px;
+  --fontSizeSmall: 12px;
+  --defaultGap: 10px;
+}
+
+.header--container {
+  background-color: var(--blackColor);
+  color: var(--whiteColor);
+  height: 10vh;
+}
+
+.main--container {
+  display: flex;
+  gap: var(--defaultGap);
+  background-color: violet;
+  height: calc(100vh - 10vh);
+  padding: 1rem;
+}
+
+.list {
+  background-color: wheat;
+  width: 70%;
+}
+
+.form {
+  background-color: wheat;
+  flex: 1;
+}
