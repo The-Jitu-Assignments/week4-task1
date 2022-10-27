@@ -2,11 +2,11 @@ import React from 'react'
 import Form from './Form'
 import TodoList from './TodoList';
 
-const Main = () => {
+const Main = ({ todos }) => {
   return (
     <div className='main--container'>
       <div className='list'>
-        <TodoList />
+        <TodoList todos={todos} />
       </div>
       <div className='form'>
         <Form />

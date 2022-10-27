@@ -9,6 +9,7 @@ export const useTodos = () => {
   const addTodo = newTodo => {
     todos.push({ ...newTodo });
     localStorage.setItem('todos', JSON.stringify(todos));
+    window.dispatchEvent(new Event('storage'));
     setTodos(todos)
   }
 

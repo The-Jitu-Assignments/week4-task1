@@ -1,40 +1,34 @@
 import Card from './Card';
-import { faker } from '@faker-js/faker';
-import { useTodos } from './useTodos';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const prioritiesValues = ['low', 'medium', 'high'];
 
-const data = new Array(10).fill().map(() => ({
-  id: faker.datatype.uuid(),
-  title: faker.lorem.words(4),
-  description: faker.lorem.sentences(5),
-  status: prioritiesValues[Math.floor(Math.random() * prioritiesValues.length)]
-}));
+const TodoList = ({ todos }) => {
+  const [word, setWord] = useState('');
+  const [filteredArr, setFilteredArr] = useState(todos);
 
-const TodoList = () => {
-  const [todosList, setTodosList] = useState([]);
   useEffect(() => {
-    let todos = JSON.parse(localStorage.getItem('todos'));
-    if (todos) {
-      setTodosList(todos);
-    }
-  },[todosList])
+    setFilteredArr(() => {
+      const newArr = todos
+        .filter(item => item.title.includes(word))
+      return newArr
+    })
+  }, [word])
+  
   return (
     <div className='list--box'>
       <div className='todo--header'>
         <div className='todo--searchbar'>
-          <input type="search" />
+          <input type="search" value={word} onChange={(e) => setWord(e.target.value)} />
         </div>
-        <div className='list--priority__box'>
+        {/* <div className='list--priority__box'>
           <div className="list--priority">item1</div>
           <div className="list--priority">item2</div>
           <div className="list--priority">item3</div>
           <div className="list--priority">item4</div>
-        </div>
+        </div> */}
       </div>
       <div className='todo--body'>
-        <Card todos={todosList} />
+        <Card todos={filteredArr} />
       </div>
     </div>
   )
