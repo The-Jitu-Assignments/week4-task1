@@ -4,13 +4,6 @@ import { useTodos } from './useTodos';
 import { faker } from '@faker-js/faker';
 import Card from './Card';
 
-// const data = new Array(10).fill().map(() => ({
-//   id: faker.datatype.uuid(),
-//   title: faker.lorem.words(4),
-//   description: faker.lorem.sentences(5),
-//   status: prioritiesValues[Math.floor(Math.random() * prioritiesValues.length)]
-// }));
-
 const Form = () => {
   const [ , addTodo ] = useTodos();
   const [newTodo, setNewTodo] = useState({
@@ -68,8 +61,6 @@ const Form = () => {
       <button onClick={handleSubmit}>
         Submit
       </button>
-      {/* <Card todos={filteredArr} /> */}
-      {/* <Button className={"form--btn"} text={"Submit"} onClick={() => console.log('clicked')} /> */}
     </div>
   )
 }
