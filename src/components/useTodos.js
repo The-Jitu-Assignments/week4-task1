@@ -3,7 +3,6 @@ import { useState } from 'react';
 export const useTodos = () => {
   const [todos, setTodos] = useState(() => {
     let localTodos = JSON.parse(localStorage.getItem('todos'));
-    console.log(localTodos)
     return localTodos === null ? [] : localTodos;
   });
 
