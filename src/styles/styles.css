@@ -42,8 +42,61 @@ body {
   box-shadow: var(--defaultBoxShadow);
 }
 
+.list--box {
+  background-color: pink;
+  margin: 10px;
+  height: calc(100% - 20px);
+}
+
+.todo--header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: aqua;
+  height: 10%;
+  gap: 40px;
+}
+
+.todo--body {
+  background-color: green;
+  height: 90%;
+}
+
+.todo--searchbar{
+  width: 60%;
+}
+
+.todo--searchbar input {
+  width: 100%;
+  padding: 5px 15px;
+  background-color: transparent;
+  border: none;
+  outline: 1px solid var(--blackColor);
+  border-radius: 15px;
+}
+
+.list--priority__box {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.list--priority {
+  background-color: var(--blackColor);
+  color: var(--whiteColor);
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
 .form {
   background-color: var(--darkWhite);
   flex: 1;
   box-shadow: var(--defaultBoxShadow);
+}
+
+.form--box {
+  background-color: pink;
+  margin: 10px;
+  height: calc(100% - 20px);
 }
