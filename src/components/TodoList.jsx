@@ -1,6 +1,7 @@
 import Card from './Card';
 import { faker } from '@faker-js/faker';
 import { useTodos } from './useTodos';
+import { useState, useEffect } from 'react';
 
 const prioritiesValues = ['low', 'medium', 'high'];
 
@@ -12,7 +13,13 @@ const data = new Array(10).fill().map(() => ({
 }));
 
 const TodoList = () => {
-  const [ todos ] = useTodos();
+  const [todosList, setTodosList] = useState([]);
+  useEffect(() => {
+    let todos = JSON.parse(localStorage.getItem('todos'));
+    if (todos) {
+      setTodosList(todos);
+    }
+  },[todosList])
   return (
     <div className='list--box'>
       <div className='todo--header'>
@@ -27,7 +34,7 @@ const TodoList = () => {
         </div>
       </div>
       <div className='todo--body'>
-        <Card todos={data} />
+        <Card todos={todosList} />
       </div>
     </div>
   )
