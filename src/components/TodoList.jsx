@@ -1,4 +1,14 @@
-import React from 'react'
+import Card from './Card';
+import { faker } from '@faker-js/faker';
+
+const prioritiesValues = ['low', 'medium', 'high'];
+
+const data = new Array(10).fill().map(() => ({
+  id: faker.datatype.uuid(),
+  title: faker.lorem.words(4),
+  description: faker.lorem.sentences(5),
+  status: prioritiesValues[Math.floor(Math.random() * prioritiesValues.length)]
+}));
 
 const TodoList = () => {
   return (
@@ -14,7 +24,9 @@ const TodoList = () => {
           <div className="list--priority">item4</div>
         </div>
       </div>
-      <div className='todo--body'>Todo Body</div>
+      <div className='todo--body'>
+        <Card todos={data} />
+      </div>
     </div>
   )
 }

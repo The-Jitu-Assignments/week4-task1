@@ -1,6 +1,10 @@
 import React from 'react'
+import Button from './Button';
+import { useTodos } from './useTodos';
 
 const Form = () => {
+  const [ todos, addTodo ] = useTodos();
+  console.log(todos);
   return (
     <div className='form--box'>
       <div className='form--details'>
@@ -19,7 +23,7 @@ const Form = () => {
           <option value="high">High</option>
         </select>
       </div>
-      <button>Submit</button>
+      <Button className={"form--btn"} text={"Submit"} />
     </div>
   )
 }
