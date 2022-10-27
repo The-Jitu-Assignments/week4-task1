@@ -14,7 +14,7 @@ body {
   --darkWhite: #EEF1FF;
   --fontSizeLarge: 32px;
   --fontSizeMedium: 20px;
-  --fontSizeSmall: 12px;
+  --fontSizeSmall: 14px;
   --defaultGap: 10px;
   --defaultBoxShadow: 0px 7px 30px -4px rgba(0,0,0,0.75);
 }
@@ -27,6 +27,7 @@ body {
   font-size: var(--fontSizeLarge);
   padding-left: 20px;
   align-items: center;
+  font-weight: 700;
 }
 
 .main--container {
@@ -34,6 +35,7 @@ body {
   gap: var(--defaultGap);
   height: calc(100vh - 10vh);
   padding: 20px;
+  overflow-y: scroll;
 }
 
 .list {
@@ -43,7 +45,6 @@ body {
 }
 
 .list--box {
-  background-color: pink;
   margin: 10px;
   height: calc(100% - 20px);
 }
@@ -52,13 +53,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: aqua;
   height: 10%;
   gap: 40px;
 }
 
 .todo--body {
-  background-color: green;
+  border-top: 1px solid var(--blackColor);
   height: 90%;
 }
 
@@ -96,7 +96,45 @@ body {
 }
 
 .form--box {
-  background-color: pink;
   margin: 10px;
   height: calc(100% - 20px);
+}
+
+.form--details {
+  margin-bottom: 25px;
+}
+
+.form--details label {
+  display: none;
+}
+
+.form--details input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--blackColor);
+  font-size: var(--fontSizeSmall);
+  padding: 5px 15px;
+  outline: none;
+  background-color: transparent
+}
+
+.form--details textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--blackColor);
+  font-size: var(--fontSizeSmall);
+  padding: 5px 15px;
+  outline: none;
+  background-color: transparent
+}
+
+.form--details select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--blackColor);
+  font-size: var(--fontSizeSmall);
+  padding: 5px 15px;
+  outline: none;
+  background-color: transparent;
+  margin-bottom: 35px;
 }

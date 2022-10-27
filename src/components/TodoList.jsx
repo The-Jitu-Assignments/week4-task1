@@ -5,7 +5,7 @@ const TodoList = () => {
     <div className='list--box'>
       <div className='todo--header'>
         <div className='todo--searchbar'>
-          <input />
+          <input type="search" />
         </div>
         <div className='list--priority__box'>
           <div className="list--priority">item1</div>
