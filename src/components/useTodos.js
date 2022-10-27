@@ -2,13 +2,18 @@ import { useState } from 'react';
 
 export const useTodos = () => {
   const [todos, setTodos] = useState(() => {
-    return localStorage.getItem('todos');
+    let localTodos = JSON.parse(localStorage.getItem('todos'));
+    console.log(localTodos)
+    return localTodos === null ? [] : localTodos;
   });
 
   const addTodo = newTodo => {
-    let updatedTodos = todos.push(newTodo)
-    localStorage.setItem('todo', updatedTodos);
-    setTodos(updatedTodos)
+    console.log('new', newTodo);
+    console.log('todos', todos);
+    todos.push({ ...newTodo });
+    console.log('todos', todos);
+    localStorage.setItem('todos', JSON.stringify(todos));
+    setTodos(todos)
   }
 
   return [todos, addTodo];

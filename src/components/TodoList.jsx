@@ -1,5 +1,6 @@
 import Card from './Card';
 import { faker } from '@faker-js/faker';
+import { useTodos } from './useTodos';
 
 const prioritiesValues = ['low', 'medium', 'high'];
 
@@ -11,6 +12,7 @@ const data = new Array(10).fill().map(() => ({
 }));
 
 const TodoList = () => {
+  const [ todos ] = useTodos();
   return (
     <div className='list--box'>
       <div className='todo--header'>

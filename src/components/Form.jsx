@@ -1,10 +1,25 @@
-import React from 'react'
+import { useState } from 'react'
 import Button from './Button';
 import { useTodos } from './useTodos';
 
 const Form = () => {
   const [ todos, addTodo ] = useTodos();
-  console.log(todos);
+  const [newTodo, setNewTodo] = useState({
+    id: 1,
+    title: 'new Todo',
+    description: 'blah blah',
+    status: 'low',
+  });
+
+  const handleSubmit = () => {
+    console.log('data added');
+    addTodo({ 
+      id: newTodo.id,
+      title: newTodo.title,
+      description: newTodo.description,
+      status: newTodo.status
+     });
+  };
   return (
     <div className='form--box'>
       <div className='form--details'>
@@ -23,7 +38,10 @@ const Form = () => {
           <option value="high">High</option>
         </select>
       </div>
-      <Button className={"form--btn"} text={"Submit"} />
+      <button onClick={handleSubmit}>
+        Submit
+      </button>
+      {/* <Button className={"form--btn"} text={"Submit"} onClick={() => console.log('clicked')} /> */}
     </div>
   )
 }
