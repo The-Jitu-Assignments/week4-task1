@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import Button from './Button';
+import { useEffect, useState } from 'react'
 import { useTodos } from './useTodos';
 import { faker } from '@faker-js/faker';
-import Card from './Card';
 
-const Form = () => {
+const Form = ({ todos }) => {
   const [ , addTodo ] = useTodos();
   const [newTodo, setNewTodo] = useState({
     id: faker.datatype.uuid(),
@@ -27,7 +25,7 @@ const Form = () => {
       description: newTodo.description,
       status: newTodo.status
      });
-     window.location.reload(false);
+     window.location.reload(false)
   };
   return (
     <div className='form--box'>

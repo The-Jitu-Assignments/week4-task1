@@ -1,7 +1,8 @@
 import React from 'react'
 import Button from './Button'
 
-const Card = ({ todos }) => {
+const Card = ({ todos, selectedTodo }) => {
+  console.log(selectedTodo)
   const handleDelete = (id) => {
     todos = todos.filter((todo) => todo.id !== id);
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -10,10 +11,7 @@ const Card = ({ todos }) => {
 
   const handleEdit = (id) => {
     let todo = todos.find((item) => item.id === id);
-    // handleDelete(id)
-    console.log(todo);
-    console.log(newTodo);
-    setNewTodo(newTodo.todo)
+    selectedTodo(todo)
   }
   return (
     <div className='card'>

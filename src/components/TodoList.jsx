@@ -2,7 +2,10 @@ import Card from './Card';
 import { useEffect, useState } from 'react';
 
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, currentTodo }) => {
+  const selectedTodo = (todo) => {
+    currentTodo(todo)
+  }
   const [word, setWord] = useState('');
   const [filteredArr, setFilteredArr] = useState(todos);
 
@@ -20,15 +23,9 @@ const TodoList = ({ todos }) => {
         <div className='todo--searchbar'>
           <input type="search" value={word} onChange={(e) => setWord(e.target.value)} />
         </div>
-        {/* <div className='list--priority__box'>
-          <div className="list--priority">item1</div>
-          <div className="list--priority">item2</div>
-          <div className="list--priority">item3</div>
-          <div className="list--priority">item4</div>
-        </div> */}
       </div>
       <div className='todo--body'>
-        <Card todos={filteredArr} />
+        <Card todos={filteredArr} selectedTodo={selectedTodo} />
       </div>
     </div>
   )
