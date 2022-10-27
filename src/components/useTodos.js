@@ -7,10 +7,7 @@ export const useTodos = () => {
   });
 
   const addTodo = newTodo => {
-    console.log('new', newTodo);
-    console.log('todos', todos);
     todos.push({ ...newTodo });
-    console.log('todos', todos);
     localStorage.setItem('todos', JSON.stringify(todos));
     setTodos(todos)
   }
