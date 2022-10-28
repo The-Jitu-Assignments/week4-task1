@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { useTodos } from './useTodos';
 import { faker } from '@faker-js/faker';
 
-const Form = ({ todos }) => {
+const Form = ({ todos, selectedTodo }) => {
+  console.log(selectedTodo)
   const [ , addTodo ] = useTodos();
   const [newTodo, setNewTodo] = useState({
     id: faker.datatype.uuid(),
@@ -19,14 +20,40 @@ const Form = ({ todos }) => {
   };
 
   const handleSubmit = () => {
-    addTodo({ 
-      id: newTodo.id,
-      title: newTodo.title,
-      description: newTodo.description,
-      status: newTodo.status
-     });
+    if (selectedTodo.id) {
+      
+    } else {
+      addTodo({ 
+        id: newTodo.id,
+        title: newTodo.title,
+        description: newTodo.description,
+        status: newTodo.status
+      });
+    }
      window.location.reload(false)
   };
+
+  useEffect(() => {
+    if (selectedTodo) {
+      setNewTodo({
+        id: selectedTodo.id,
+        title: selectedTodo.title,
+        description: selectedTodo.description,
+        status: selectedTodo.status
+      })
+    }
+  }, [selectedTodo]);
+
+  const resetInput = () => {
+    
+    setNewTodo({
+      title: '',
+      description: '',
+      status: '',
+    })
+  }
+
+
   return (
     <div className='form--box'>
       <div className='form--details'>
@@ -59,6 +86,7 @@ const Form = ({ todos }) => {
       <button onClick={handleSubmit}>
         Submit
       </button>
+      <button type='reset' onClick={resetInput}>Reset</button>
     </div>
   )
 }

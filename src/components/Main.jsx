@@ -1,10 +1,11 @@
-import React from 'react'
+import { useState } from 'react'
 import Form from './Form'
 import TodoList from './TodoList';
 
 const Main = ({ todos }) => {
+  const [selectedTodo, setSelectedTodo] = useState({});
   const currentTodo = (todo) => {
-    console.log(todo)
+    setSelectedTodo(todo)
   }
   return (
     <div className='main--container'>
@@ -12,7 +13,7 @@ const Main = ({ todos }) => {
         <TodoList todos={todos} currentTodo={currentTodo} />
       </div>
       <div className='form'>
-        <Form todos={todos} />
+        <Form todos={todos} selectedTodo={selectedTodo} />
       </div>
     </div>
   )
