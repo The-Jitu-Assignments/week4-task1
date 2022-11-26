@@ -2,24 +2,7 @@ import React, { useEffect } from 'react'
 import Button from './Button'
 
 const Card = ({ todos, selectedTodo, setNewTodo, handleDelete, handleEdit }) => {
-  // const handleDelete = (id) => {
-  //   todos = todos.filter((todo) => todo.id !== id);
-  //   localStorage.setItem('todos', JSON.stringify(todos));
-  //   window.location.reload(true); 
-  // }
 
-  // const handleEdit = (id) => {
-  //   let todo = todos.find((item) => item.id === id);
-  //   selectedTodo(todo);
-  //   setNewTodo({
-  //     id: todo.id,
-  //     title: todo.title,
-  //     description: todo.description,
-  //     status: todo.status
-  //   })
-  // }
-
-  
   return (
     <div className='card'>
       <ul>

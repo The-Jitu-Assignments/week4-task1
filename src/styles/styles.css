@@ -175,9 +175,10 @@ button {
   display: flex;
   flex-direction: column;
   gap: var(--defaultGap);
+  color: white;
   list-style: none;
   margin: 20px;
-  background-color: yellowgreen;
+  background-color: rgba(10, 27, 124, 0.878);
   padding: 10px;
 }
 
