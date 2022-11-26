@@ -19,6 +19,16 @@ body {
   --defaultBoxShadow: 0px 7px 30px -4px rgba(0,0,0,0.75);
 }
 
+button {
+  background-color: transparent;
+  padding: 8px 15px;
+  border: none;
+  background-color: var(--blackColor);
+  color: var(--whiteColor);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .header--container {
   display: flex;
   background-color: var(--blackColor);
@@ -42,6 +52,7 @@ body {
   background-color: var(--darkWhite);
   width: 70%;
   box-shadow: var(--defaultBoxShadow);
+  height: 600px;
 }
 
 .list--box {
@@ -93,6 +104,7 @@ body {
   background-color: var(--darkWhite);
   flex: 1;
   box-shadow: var(--defaultBoxShadow);
+  height: 600px;
 }
 
 .form--box {
@@ -139,6 +151,11 @@ body {
   margin-bottom: 35px;
 }
 
+.form--btns__container {
+  display: flex;
+  gap: var(--defaultGap);
+}
+
 .form--btn {
   background-color: var(--blackColor);
   outline: none;
@@ -173,4 +190,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 0) and (max-width: 1200px) {
+  .main--container {
+    flex-direction: column;
+  }
+
+  .list {
+    width: 100%;
+    min-height: 400px;
+  }
 }

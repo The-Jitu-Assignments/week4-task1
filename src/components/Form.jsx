@@ -1,16 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useTodos } from './useTodos';
-import { faker } from '@faker-js/faker';
 
-const Form = ({ todos, selectedTodo }) => {
+const Form = ({ todos, selectedTodo, newTodo, setNewTodo, fetched }) => {
   console.log(selectedTodo)
-  const [ , addTodo ] = useTodos();
-  const [newTodo, setNewTodo] = useState({
-    id: faker.datatype.uuid(),
-    title: '',
-    description: '',
-    status: '',
-  });
+  const [ _, addTodo ] = useTodos();
 
   const handleChange = (e) => {
     setNewTodo((newTodo) => ({
@@ -21,37 +14,23 @@ const Form = ({ todos, selectedTodo }) => {
 
   const handleSubmit = () => {
     if (selectedTodo.id) {
-      
-    } else {
+      console.log(selectedTodo)
+      console.log(newTodo);
+      let existingData = JSON.parse(localStorage.getItem('todos'));
+      existingData = existingData ? existingData : [];
+      existingData.push(newTodo);
+      localStorage.setItem('todos', JSON.stringify(existingData));
+      window.location.reload(true); 
+    } else { 
       addTodo({ 
         id: newTodo.id,
         title: newTodo.title,
         description: newTodo.description,
         status: newTodo.status
       });
+      window.location.reload(false)
     }
-     window.location.reload(false)
   };
-
-  useEffect(() => {
-    if (selectedTodo) {
-      setNewTodo({
-        id: selectedTodo.id,
-        title: selectedTodo.title,
-        description: selectedTodo.description,
-        status: selectedTodo.status
-      })
-    }
-  }, [selectedTodo]);
-
-  const resetInput = () => {
-    
-    setNewTodo({
-      title: '',
-      description: '',
-      status: '',
-    })
-  }
 
 
   return (
@@ -83,10 +62,11 @@ const Form = ({ todos, selectedTodo }) => {
           <option value="high">High</option>
         </select>
       </div>
-      <button onClick={handleSubmit}>
-        Submit
-      </button>
-      <button type='reset' onClick={resetInput}>Reset</button>
+      <div className="form--btns__container">
+        <button onClick={() => handleSubmit()}>
+          Submit
+        </button>
+      </div>
     </div>
   )
 }
