@@ -21,7 +21,7 @@ const TodoList = ({ todos, currentTodo, setNewTodo, handleDelete, handleEdit, se
     <div className='list--box'>
       <div className='todo--header'>
         <div className='todo--searchbar'>
-          <input type="search" value={word} onChange={(e) => setWord(e.target.value)} />
+          <input type="search" value={word} onChange={(e) => setWord(e.target.value)} placeholder='Search a todo' />
         </div>
       </div>
       <div className='todo--body'>
